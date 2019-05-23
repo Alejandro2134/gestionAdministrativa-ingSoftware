@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Alejandro2134/gestionAdministrativa-ingSoftware/issues"
   },
-  "homepage": "https://github.com/Alejandro2134/gestionAdministrativa-ingSoftware#readme"
+  "homepage": "https://github.com/Alejandro2134/gestionAdministrativa-ingSoftware#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
 }
