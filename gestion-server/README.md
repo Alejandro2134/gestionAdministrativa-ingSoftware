@@ -1,1 +1,1 @@
-
+## Para iniciar el servidor deben hacer la descarga de NodeJS y agregarlo al path, al agregarlo abren una consola y se dirigen a la carpeta del repositorio clonado, en esta van a la carpeta gestión-server y ejecutan el siguiente comando. 
