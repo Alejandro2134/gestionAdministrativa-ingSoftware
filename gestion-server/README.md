@@ -18,6 +18,6 @@ npm run start-dev
 
 #Update: 
 
-Si les aparece el siguiente error al iniciar el servidor deben iniciar primero el servicio de mysql
+Si les aparece el siguiente error al iniciar el servidor es por que deben iniciar el servicio de mysql:
 
 ![Error](https://raw.githubusercontent.com/Alejandro2134/gestionAdministrativa-ingSoftware/master/assets/error.png)
