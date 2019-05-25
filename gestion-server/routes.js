@@ -17,14 +17,11 @@ router.get('/registro', (req, res) => {
 })
 
 router.post('/registro', (req, res) => {
-  const { nombres, apellidos, userName,
-    contraseña, telefono, celular, correo } = req.body
-  db.query('INSERT INTO `propietarios` (`contraseña`, `nombres`, `apellidos`,
-  `telefono`, `celular`, `correo`, `userName`) VALUES (?, ?, ?, ?, ?, ?, ?)',
-  [{ contraseña }, { nombres }, { apellidos }, { telefono }, { celular },
-  { correo }, { userName }], (err, result) => {
-    res.render('pages/registro', {
-
+  const { nombres, apellidos, userName, contraseña, telefono, celular, correo } = req.body
+  db.query('INSERT INTO `propietarios` (`contraseña`, `nombres`, `apellidos`, `telefono`, `celular`, `correo`, `userName`) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [{ contraseña }, { nombres }, { apellidos }, { telefono }, { celular },
+      { correo }, { userName }], (err, result) => {
+        res.render('pages/registro', {
     })
   })
 })
