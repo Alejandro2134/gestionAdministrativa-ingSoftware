@@ -25,8 +25,8 @@
     "ejs": "^2.6.1",
     "express": "^4.17.0",
     "express-session": "^1.16.1",
-    "mysql": "^2.17.1",
-    "gestion-db": "file:../gestion-db"
+    "gestion-db": "file:../gestion-db",
+    "mysql": "^2.17.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.11",
