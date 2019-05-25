@@ -16,7 +16,7 @@ npm run start-dev
 ```
 #### Este comando inicia el servidor en vivo de modo que esta sujeto a los cambios que se realicen, por lo que no tendrán que volver a iniciar el servidor en caso de que cambien algo en la página. 
 
-#Update: 
+# Update: 
 
 Si les aparece el siguiente error al iniciar el servidor es por que deben iniciar el servicio de mysql:
 
