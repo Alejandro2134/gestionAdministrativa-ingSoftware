@@ -2,7 +2,7 @@
 
 const express = require('express')
 const router = express.Router()
-const db = require('gestionbd')
+const db = require('gestion-db')
 
 router.get('/', (req, res) => {
   res.render('pages/index')
