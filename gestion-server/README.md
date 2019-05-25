@@ -8,7 +8,7 @@ Antes de iniciar el servidor por primera vez, es necesario que instalen express 
 npm install express
 ```
 
-### Comandos para correr el servidor
+## Comandos para correr el servidor
 ```
 npm run start
 ``` 
