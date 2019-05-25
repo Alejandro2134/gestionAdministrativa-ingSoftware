@@ -19,9 +19,7 @@ router.get('/registro', (req, res) => {
 router.post('/registro', async (req, res) => {
   await db.query('INSERT INTO propietarios (contraseña, nombres, apellidos, telefono, celular, correo, userName) VALUES ( ?, ?, ?, ?, ?, ?, ?)',
     [req.body.contraseña, req.body.nombres, req.body.apellidos, req.body.telefono, req.body.celular, req.body.correo, req.body.userName], (err, result) => {
-        res.render('pages/registro', {
-          
-    })
+        res.redirect('/login')
   })
 })
 
