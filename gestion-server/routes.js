@@ -12,4 +12,8 @@ router.get('/login', (req, res) => {
   res.render('pages/login')
 })
 
+router.get('/registro', (req, res) => {
+  res.render('pages/registro')
+})
+
 module.exports = router
