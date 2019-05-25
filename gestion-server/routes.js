@@ -16,12 +16,11 @@ router.get('/registro', (req, res) => {
   res.render('pages/registro')
 })
 
-router.post('/registro', (req, res) => {
-  const { nombres, apellidos, userName, contraseña, telefono, celular, correo } = req.body
-  db.query('INSERT INTO `propietarios` (`contraseña`, `nombres`, `apellidos`, `telefono`, `celular`, `correo`, `userName`) VALUES (?, ?, ?, ?, ?, ?, ?)',
-    [{ contraseña }, { nombres }, { apellidos }, { telefono }, { celular },
-      { correo }, { userName }], (err, result) => {
+router.post('/registro', async (req, res) => {
+  await db.query('INSERT INTO propietarios (contraseña, nombres, apellidos, telefono, celular, correo, userName) VALUES ( ?, ?, ?, ?, ?, ?, ?)',
+    [req.body.contraseña, req.body.nombres, req.body.apellidos, req.body.telefono, req.body.celular, req.body.correo, req.body.userName], (err, result) => {
         res.render('pages/registro', {
+          
     })
   })
 })
