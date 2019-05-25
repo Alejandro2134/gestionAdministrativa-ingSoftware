@@ -16,4 +16,17 @@ router.get('/registro', (req, res) => {
   res.render('pages/registro')
 })
 
+router.post('/registro', (req, res) => {
+  const { nombres, apellidos, userName,
+    contraseña, telefono, celular, correo } = req.body
+  db.query('INSERT INTO `propietarios` (`contraseña`, `nombres`, `apellidos`,
+  `telefono`, `celular`, `correo`, `userName`) VALUES (?, ?, ?, ?, ?, ?, ?)',
+  [{ contraseña }, { nombres }, { apellidos }, { telefono }, { celular },
+  { correo }, { userName }], (err, result) => {
+    res.render('pages/registro', {
+
+    })
+  })
+})
+
 module.exports = router
