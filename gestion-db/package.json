@@ -1,0 +1,22 @@
+{
+  "name": "gestion-db",
+  "version": "1.0.0",
+  "description": "A simple conector of a database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alejandro2134/gestionAdministrativa-ingSoftware.git"
+  },
+  "author": "Alejandro Zapata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alejandro2134/gestionAdministrativa-ingSoftware/issues"
+  },
+  "homepage": "https://github.com/Alejandro2134/gestionAdministrativa-ingSoftware#readme",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
