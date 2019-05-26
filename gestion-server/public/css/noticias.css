@@ -1,7 +1,47 @@
-h1 {
-  color: #ffffff;
+.head{
+  margin-top: 50px;
+  background-color:   #bbcbbb  ;
 }
 
-contenedor {
-  background: #ffffff;
+.head-content{
+  padding: 30px;
+
+}
+
+.title-head{
+  margin-left: 35px;
+}
+
+.img-head{
+  width: 90px;
+  position: absolute;
+  top: 0;
+  left: 15px;
+}
+
+.articles{
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.article{
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  background:    #bbcbbb  ;
+}
+
+.img-article{
+  width: 50%;
+  height: 150px;
+  border-radius: 10px 10px 0px 0px;
+
+}
+
+.article-body{
+padding: 20px;
+}
+.title-article{
+  margin-top: 0;
 }

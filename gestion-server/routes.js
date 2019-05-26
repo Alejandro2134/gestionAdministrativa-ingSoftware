@@ -21,7 +21,11 @@ router.get('/Admin', (req, res) => {
 })
 
 router.get('/Residente', (req, res) => {
-  res.render('pages/indexUser')
+  db.query('SELECT * FROM noticias ', (err, result) => {
+    res.render('pages/indexUser', {
+      data: result
+    })
+  })
 })
 
 router.post('/registro', async (req, res) => {
