@@ -22,27 +22,29 @@
       </div>
       <form class="form-reg" method="POST">
 
-        <h3>Nombre De Usuario</h3>
-        <input class="input" name="username" type="text" placeholder="Ingrese nombre de usuario" required>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Nombre de usuario</label>
+          <input name="username" type="text" class="form-control" placeholder="Ingrese nombre de usuario" required>
+        </div>
 
-        <h3>Contraseña</h3>
-        <input class="input" name="contraseña" type="password" placeholder="Ingrese contraseña" required>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Contraseña</label>
+          <input name="contraseña" type="password" class="form-control" placeholder="Ingrese contraseña"  required>
+        </div>
 
-        <h3>Tipo De Sesión</h3>
-        <div class="select">
-        <select required>
-
-             <option value="" disabled selected>Seleccionar Tipo De Cuenta...</option>
-             <option value="1">Usuario</option>
-             <option value="2">Administrador</option>
-
-        </select>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Tipo de sesión</label>
+           <select name="sesion" class="form-control">
+             <option>Administrador</option>
+             <option>Propietario</option>
+           </select>
         </div>
 
         <div class="btn-form">
-  		<button type="submit" class="btn btn-dark">Iniciar Sesión</button>
-          <button type="reset" class="btn btn-dark">Limpiar Campos</button>
+  		      <button type="submit" class="btn btn-dark">Iniciar Sesión</button>
+            <button type="reset" class="btn btn-dark">Limpiar Campos</button>
         </div>
+
       </form>
     </div>
 

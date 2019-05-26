@@ -12,6 +12,21 @@ router.get('/login', (req, res) => {
   res.render('pages/login')
 })
 
+router.post('/login', async (req, res) => {
+
+  if(req.body.sesion === 'Administrador'){
+    await db.query('SELECT * FROM administradores WHERE userAdmin = ? AND contraseñaAdmin = ?',
+      [req.body.username, req.body.contraseña], (err, result) => {
+          res.redirect('/')
+    })
+  }
+
+  if(req.body.sesion === 'Propietario'){
+
+  }
+
+})
+
 router.get('/registro', (req, res) => {
   res.render('pages/registro')
 })
