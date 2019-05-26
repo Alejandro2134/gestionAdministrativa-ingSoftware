@@ -10,10 +10,10 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/noticias.css">
+  <link rel="stylesheet" href="/css/eventos.css">
   <!-- Custom CSS -->
 
-  <title>Noticias</title>
+  <title>Eventos</title>
 </head>
 
 <header>
@@ -26,8 +26,8 @@
       <div class="container contenedor">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
-            <img src="/img/noticias.png" class="img-head">
-            <h1 class="title-head">&nbsp&nbsp&nbsp&nbsp&nbsp Sección de Noticias</h1>
+            <img src="/img/eventos.png" class="img-head">
+            <h1 class="title-head">&nbsp&nbsp&nbsp&nbsp&nbsp Sección de Eventos</h1>
           </div>
         </div>
       </div>
@@ -41,8 +41,9 @@
             <article>
               <div class="article">
                 <div class="article-body">
-                  <h1 class="title-article"><%= data[i].tituloNoticia %></h1>
-                  <p><%= data[i].contenioNoticia %></p>
+                  <h1 class="title-article"><%= data[i].nombreEvento %></h1>
+                  <span><%= data[i].fechaEvento%> </span>
+                  <p><%= data[i].contenidoEvento %></p>
                 </div>
               </div>
             </article>
