@@ -12,30 +12,38 @@ router.get('/login', (req, res) => {
   res.render('pages/login')
 })
 
-router.post('/login', async (req, res) => {
+router.post('/login', (req, res) => {
+  const { sesion } = req.body
 
-  if(req.body.sesion === 'Administrador'){
-    await db.query('SELECT * FROM administradores WHERE userAdmin = ? AND contraseñaAdmin = ?',
-      [req.body.username, req.body.contraseña], (err, result) => {
-          res.redirect('/')
+  if(sesion === 'Administrador'){
+    const { userAdmin, contraseñaAdmin } = req.body
+    db.query('SELECT * FROM administradores WHERE ? AND ?', [{ userAdmin }, { contraseñaAdmin }], (err, result) => {
+      res.render('pages/indexAdmin', {
+        data: result
+      })
     })
   }
 
-  if(req.body.sesion === 'Propietario'){
-
+  if(sesion === 'Propietario'){
+    let userName = req.body.userAdmin
+    let contraseña = req.body.contraseñaAdmin
+    db.query('SELECT * FROM propietarios WHERE ? AND ?', [{ userName }, { contraseña }], (err, result) => {
+      res.render('pages/indexUser', {
+        data: result
+      })
+    })
   }
-
 })
 
 router.get('/registro', (req, res) => {
   res.render('pages/registro')
 })
 
-router.get('/Admin', (req, res) => {
+router.get('/admin', (req, res) => {
   res.render('pages/indexAdmin')
 })
 
-router.get('/Residente', (req, res) => {
+router.get('/propietario', (req, res) => {
   res.render('pages/indexUser')
 })
 
