@@ -1,23 +1,23 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark " style="background-color: #111;">
   <a class="navbar-brand" href="/">Sesion administrador</a>
   <form class="form-inline">
 
     <div class="row">
       <div class="btn-group">
-        <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+        <button type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">Opciones</button>
 
-        <div class="dropdown-menu btn-outline-success dropdown-menu-lg-right" aria-labelledby="btnGroupDrop1">
-          <a class="dropdown-item" type="button" href="#" id="noticas">Actualizar Noticias</a>
-          <a class="dropdown-item" type="button" href="#">Actualizar Eventos</a>
-          <a class="dropdown-item" type="button" href="#">Actualizar Informes</a>
-          <a class="dropdown-item" type="button" href="#">Actualizar Datos Residentes</a>
-          <a class="dropdown-item" type="button" href="#">Actualizar Empresa Aseo</a>
-          <a class="dropdown-item" type="button" href="#">Actualizar Empresa Vigilancia</a>
+        <div class="dropdown-menu btn-outline-warning dropdown-menu-lg-right" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" type="button" href="/Admin/ActNoticas" id="noticas">Actualizar Noticias</a>
+          <a class="dropdown-item" type="button" href="/Admin/ActEventos">Actualizar Eventos</a>
+          <a class="dropdown-item" type="button" href="/Admin/ActInformes">Actualizar Informes</a>
+          <a class="dropdown-item" type="button" href="/Admin/ActResidentes">Actualizar Datos Residentes</a>
+          <a class="dropdown-item" type="button" href="/Admin/ActEmpresaAseo">Actualizar Empresa Aseo</a>
+          <a class="dropdown-item" type="button" href="/Admin/ActEmpresaVig">Actualizar Empresa Vigilancia</a>
         </div>
       </div>
 
-      <div class="col"> <a class="btn btn-outline-success" type="button" href="#">Cerrar Sesion</a> </div>
+      <div class="col"> <a class="btn btn-outline-warning" type="button" href="../login">Cerrar Sesion</a> </div>
     </div>
 
   </form>

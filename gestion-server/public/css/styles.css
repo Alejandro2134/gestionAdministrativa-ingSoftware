@@ -1,21 +1,25 @@
 body {
-  background: linear-gradient(to left, #343a40, #28a745, #343a40);
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .cont1 {
   max-width: 550px;
   height: auto;
-  background-color: #FFFFFF;
+  background-color: #111;
   margin: 7% auto;
   padding-bottom: 1rem;
+    border-radius: 5px;
 }
 
 .form-top {
   width: 100%;
   text-align: center;
   padding: 2rem 0 1rem;
-  border-top: solid .6rem #FFFFFF;
+  border-top: solid .6rem #111;
   margin-bottom: 1rem;
+  color: #cac8c8;
+    border-radius: 5px;
 }
 
 .form-top h2 {
@@ -45,6 +49,7 @@ body {
   border: none;
   border-bottom: solid #cac8c8 .2rem;
   transition: all .6s;
+    border-radius: 5px;
 }
 
 .select{
@@ -54,6 +59,7 @@ body {
   padding: .0rem;
   margin: .5rem 0;
   overflow: hidden;
+    border-radius: 5px;
 }
 
 
