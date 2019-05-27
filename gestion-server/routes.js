@@ -17,7 +17,11 @@ router.get('/registro', (req, res) => {
 })
 
 router.get('/Admin', (req, res) => {
-  res.render('pages/indexAdmin')
+  db.query('SELECT * FROM noticias ', (err, result) => {
+    res.render('pages/indexAdmin', {
+      data: result
+    })
+  })
 })
 
 router.get('/Residente', (req, res) => {
@@ -30,7 +34,7 @@ router.get('/Residente', (req, res) => {
 
 router.get('/Residente/Noticias', (req, res) => {
   db.query('SELECT * FROM noticias ', (err, result) => {
-    res.render('pages/indexUser', {
+    res.render('pages/NoticiasResidente', {
       data: result
     })
   })
