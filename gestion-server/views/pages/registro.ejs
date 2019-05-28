@@ -24,26 +24,40 @@
       <form class="form-reg" method="POST" action="http://localhost:3000/registro">
 
         <h3>Nombres De Usuario</h3>
-        <input class="input" name="nombres" type="text" placeholder="Ingrese nombres de usuario" required>
+        <div class="form-group">
+          <input name="nombres" type="text" class="form-control" placeholder="Ingrese nombres de usuario" required>
+        </div>
 
         <h3>Apellidos De Usuario</h3>
-        <input class="input" name="apellidos" type="text" placeholder="Ingrese apellidos de usuario" required>
+        <div class="form-group">
+          <input name="apellidos" type="text" class="form-control" placeholder="Ingrese apellidos de usuario" required>
+        </div>
 
         <h3>User Name</h3>
-        <input class="input" name="userName" type="text" placeholder="Ingrese su nickname" required>
-          <i>Con este nombre iniciara sesión</i>
+        <div class="form-group">
+          <input name="userName" type="text" class="form-control" placeholder="Ingrese su nickname" required>
+        </div>
+        <i>Con este nombre iniciara sesión</i>
 
         <h3>Contraseña</h3>
-        <input class="input" name="contraseña" type="password" placeholder="Ingrese contraseña" required>
+        <div class="form-group">
+          <input name="contraseña" type="password" class="form-control" placeholder="Ingrese contraseña" required>
+        </div>
 
         <h3>Teléfono</h3>
-        <input class="input" name="telefono" type="text" placeholder="Ingrese su teléfono" required>
+        <div class="form-group">
+          <input name="telefono" type="text" class="form-control" placeholder="Ingrese su teléfono" required>
+        </div>
 
         <h3>Celular</h3>
-        <input class="input" name="celular" type="text" placeholder="Ingrese su celular" required>
+        <div class="form-group">
+          <input name="celular" type="text" class="form-control" placeholder="Ingrese su celular" required>
+        </div>
 
         <h3>Correo</h3>
-        <input class="input" name="correo" type="text" placeholder="Ingrese su correo" required>
+        <div class="form-group">
+          <input name="correo" type="text" class="form-control" placeholder="Ingrese su correo" required>
+        </div>
 
         <div class="btn-form">
   		    <button type="submit" class="btn btn-warning">Registrar</button>
