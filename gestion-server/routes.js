@@ -39,11 +39,11 @@ router.get('/registro', (req, res) => {
   res.render('pages/registro')
 })
 
-router.get('/admin', (req, res) => {
+router.get('/Admin', (req, res) => {
   res.render('pages/indexAdmin')
 })
 
-router.get('/propietario', (req, res) => {
+router.get('/Residente', (req, res) => {
   res.render('pages/indexUser')
 })
 
