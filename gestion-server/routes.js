@@ -3,6 +3,7 @@
 const express = require('express')
 const router = express.Router()
 const db = require('gestion-db')
+const passport = require('passport')
 
 router.get('/', (req, res) => {
   res.render('pages/index')
@@ -37,6 +38,13 @@ router.post('/login', (req, res) => {
 
 router.get('/registro', (req, res) => {
   res.render('pages/registro')
+})
+
+router.post('/registro', async (req, res) => {
+  await db.query('INSERT INTO propietarios (contraseña, nombres, apellidos, telefono, celular, correo, userName) VALUES ( ?, ?, ?, ?, ?, ?, ?)',
+    [req.body.contraseña, req.body.nombres, req.body.apellidos, req.body.telefono, req.body.celular, req.body.correo, req.body.userName], (err, result) => {
+        res.redirect('/login')
+  })
 })
 
 router.get('/Admin', (req, res) => {
@@ -76,13 +84,6 @@ router.get('/Residente/Informes', (req, res) => {
     res.render('pages/InformesResidente', {
       data: result
     })
-  })
-})
-
-router.post('/registro', async (req, res) => {
-  await db.query('INSERT INTO propietarios (contraseña, nombres, apellidos, telefono, celular, correo, userName) VALUES ( ?, ?, ?, ?, ?, ?, ?)',
-    [req.body.contraseña, req.body.nombres, req.body.apellidos, req.body.telefono, req.body.celular, req.body.correo, req.body.userName], (err, result) => {
-        res.redirect('/login')
   })
 })
 
