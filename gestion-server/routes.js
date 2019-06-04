@@ -56,27 +56,27 @@ router.get('/admin', (req, res) => {
 })
 
 router.get('/admin/actNoticas', (req, res) => {
-
+  res.render('pages/actNoticas')
 })
 
 router.get('/admin/actEventos', (req, res) => {
-
+  res.render('pages/actEventos')
 })
 
 router.get('/admin/actInformes', (req, res) => {
-
+  res.render('pages/actInformes')
 })
 
 router.get('/admin/actPropietarios', (req, res) => {
-
+  res.render('pages/actPropietarios')
 })
 
 router.get('/admin/actEmpresaAseo', (req, res) => {
-
+  res.render('pages/actEmpresaAseo')
 })
 
 router.get('/admin/actEmpresaVig', (req, res) => {
-
+  res.render('pages/actEmpresaVig')
 })
 
 router.get('/propietario', (req, res) => {
