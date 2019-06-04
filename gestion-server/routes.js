@@ -55,6 +55,30 @@ router.get('/admin', (req, res) => {
   })
 })
 
+router.get('/admin/actNoticas', (req, res) => {
+
+})
+
+router.get('/admin/actEventos', (req, res) => {
+
+})
+
+router.get('/admin/actInformes', (req, res) => {
+
+})
+
+router.get('/admin/actPropietarios', (req, res) => {
+
+})
+
+router.get('/admin/actEmpresaAseo', (req, res) => {
+
+})
+
+router.get('/admin/actEmpresaVig', (req, res) => {
+
+})
+
 router.get('/propietario', (req, res) => {
   db.query('SELECT * FROM noticias ', (err, result) => {
     res.render('pages/indexPropietario', {
