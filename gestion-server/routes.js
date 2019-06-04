@@ -56,7 +56,7 @@ router.get('/admin', (req, res) => {
 })
 
 router.get('/admin/actNoticas', (req, res) => {
-  res.render('pages/actNoticas')
+  res.render('pages/actNoticias')
 })
 
 router.get('/admin/actEventos', (req, res) => {
