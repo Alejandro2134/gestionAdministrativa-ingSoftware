@@ -47,7 +47,7 @@ router.post('/registro', async (req, res) => {
   })
 })
 
-router.get('/Admin', (req, res) => {
+router.get('/admin', (req, res) => {
   db.query('SELECT * FROM noticias ', (err, result) => {
     res.render('pages/indexAdmin', {
       data: result
@@ -55,33 +55,33 @@ router.get('/Admin', (req, res) => {
   })
 })
 
-router.get('/Residente', (req, res) => {
+router.get('/propietario', (req, res) => {
   db.query('SELECT * FROM noticias ', (err, result) => {
-    res.render('pages/indexUser', {
+    res.render('pages/indexPropietario', {
       data: result
     })
   })
 })
 
-router.get('/Residente/Noticias', (req, res) => {
+router.get('/propietario/noticias', (req, res) => {
   db.query('SELECT * FROM noticias ', (err, result) => {
-    res.render('pages/NoticiasResidente', {
+    res.render('pages/noticiasPropietario', {
       data: result
     })
   })
 })
 
-router.get('/Residente/Eventos', (req, res) => {
+router.get('/propietario/eventos', (req, res) => {
   db.query('SELECT * FROM eventos ', (err, result) => {
-    res.render('pages/EventosResidente', {
+    res.render('pages/eventosPropietario', {
       data: result
     })
   })
 })
 
-router.get('/Residente/Informes', (req, res) => {
+router.get('/propietario/informes', (req, res) => {
   db.query('SELECT * FROM informes ', (err, result) => {
-    res.render('pages/InformesResidente', {
+    res.render('pages/informesPropietario', {
       data: result
     })
   })
