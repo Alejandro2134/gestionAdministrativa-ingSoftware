@@ -94,12 +94,20 @@ router.post('/admin/actNoticias/update/:id', async (req, res) => {
   res.redirect('/admin/actNoticias')
 })
 
-router.get('/admin/actEventos', (req, res) => {
-  res.render('pages/actEventos')
+router.get('/admin/actEventos', async (req, res) => {
+  await db.query('SELECT * FROM eventos ', (err, result) => {
+    res.render('pages/actEventos', {
+      data: result
+    })
+  })
 })
 
-router.get('/admin/actInformes', (req, res) => {
-  res.render('pages/actInformes')
+router.get('/admin/actInformes', async (req, res) => {
+  await db.query('SELECT * FROM informes ', (err, result) => {
+    res.render('pages/actInformes', {
+      data: result
+    })
+  })
 })
 
 router.get('/admin/actPropietarios', (req, res) => {
