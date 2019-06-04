@@ -47,16 +47,51 @@ router.post('/registro', async (req, res) => {
   })
 })
 
-router.get('/admin', (req, res) => {
-  db.query('SELECT * FROM noticias ', (err, result) => {
+router.get('/admin', async (req, res) => {
+  await db.query('SELECT * FROM noticias ', (err, result) => {
     res.render('pages/indexAdmin', {
       data: result
     })
   })
 })
 
-router.get('/admin/actNoticas', (req, res) => {
-  res.render('pages/actNoticias')
+router.get('/admin/actNoticias', async (req, res) => {
+  await db.query('SELECT * FROM noticias ', (err, result) => {
+    res.render('pages/actNoticias', {
+      data: result
+    })
+  })
+})
+
+router.get('/admin/actNoticias/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('DELETE FROM noticias WHERE idNoticias = ?', [id])
+  res.redirect('/admin/actNoticias')
+})
+
+router.get('/admin/actNoticias/agregarNoticia', (req, res) => {
+  res.render('pages/agregarNoticia')
+})
+
+router.post('/admin/actNoticias/agregarNoticia', async (req, res) => {
+  const { tituloNoticia, contenioNoticia } = req.body;
+  await db.query('INSERT INTO noticias (tituloNoticia, contenioNoticia) VALUES (?, ?)', [tituloNoticia, contenioNoticia])
+  res.redirect('/admin/actNoticias')
+})
+
+router.get('/admin/actNoticias/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('SELECT * FROM noticias WHERE idNoticias = ?', [id], (err, result) => {
+    res.render('pages/updateNoticia', {
+      data: result
+    })
+  })
+})
+
+router.post('/admin/actNoticias/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('UPDATE noticias SET tituloNoticia = ?, contenioNoticia = ? WHERE idNoticias = ?', [req.body.tituloNoticia, req.body.contenioNoticia, id]);
+  res.redirect('/admin/actNoticias')
 })
 
 router.get('/admin/actEventos', (req, res) => {
@@ -79,32 +114,32 @@ router.get('/admin/actEmpresaVig', (req, res) => {
   res.render('pages/actEmpresaVig')
 })
 
-router.get('/propietario', (req, res) => {
-  db.query('SELECT * FROM noticias ', (err, result) => {
+router.get('/propietario', async (req, res) => {
+  await db.query('SELECT * FROM noticias ', (err, result) => {
     res.render('pages/indexPropietario', {
       data: result
     })
   })
 })
 
-router.get('/propietario/noticias', (req, res) => {
-  db.query('SELECT * FROM noticias ', (err, result) => {
+router.get('/propietario/noticias', async (req, res) => {
+  await db.query('SELECT * FROM noticias ', (err, result) => {
     res.render('pages/noticiasPropietario', {
       data: result
     })
   })
 })
 
-router.get('/propietario/eventos', (req, res) => {
-  db.query('SELECT * FROM eventos ', (err, result) => {
+router.get('/propietario/eventos', async (req, res) => {
+  await db.query('SELECT * FROM eventos ', (err, result) => {
     res.render('pages/eventosPropietario', {
       data: result
     })
   })
 })
 
-router.get('/propietario/informes', (req, res) => {
-  db.query('SELECT * FROM informes ', (err, result) => {
+router.get('/propietario/informes', async (req, res) => {
+  await db.query('SELECT * FROM informes ', (err, result) => {
     res.render('pages/informesPropietario', {
       data: result
     })
