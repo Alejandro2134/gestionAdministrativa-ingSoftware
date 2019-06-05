@@ -54,7 +54,7 @@ router.get('/admin', async (req, res) => {
     })
   })
 })
-
+//------------------------------------------------------------
 router.get('/admin/actNoticias', async (req, res) => {
   await db.query('SELECT * FROM noticias ', (err, result) => {
     res.render('pages/actNoticias', {
@@ -93,7 +93,7 @@ router.post('/admin/actNoticias/update/:id', async (req, res) => {
   await db.query('UPDATE noticias SET tituloNoticia = ?, contenioNoticia = ? WHERE idNoticias = ?', [req.body.tituloNoticia, req.body.contenioNoticia, id]);
   res.redirect('/admin/actNoticias')
 })
-
+//------------------------------------------------------------
 router.get('/admin/actEventos', async (req, res) => {
   await db.query('SELECT * FROM eventos ', (err, result) => {
     res.render('pages/actEventos', {
@@ -102,6 +102,37 @@ router.get('/admin/actEventos', async (req, res) => {
   })
 })
 
+router.get('/admin/actEventos/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('DELETE FROM eventos WHERE idEventos = ?', [id])
+  res.redirect('/admin/actEventos')
+})
+
+router.get('/admin/actEventos/agregarEvento', (req, res) => {
+  res.render('pages/agregarEvento')
+})
+
+router.post('/admin/actEventos/agregarEvento', async (req, res) => {
+  const { tituloEvento, contenidoEvento } = req.body;
+  await db.query('INSERT INTO eventos (nombreEvento, contenidoEvento) VALUES (?, ?)', [tituloEvento, contenidoEvento])
+  res.redirect('/admin/actEventos')
+})
+
+router.get('/admin/actEventos/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('SELECT * FROM eventos WHERE idEventos = ?', [id], (err, result) => {
+    res.render('pages/updateEvento', {
+      data: result
+    })
+  })
+})
+
+router.post('/admin/actEventos/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('UPDATE eventos SET nombreEvento = ?, contenidoEvento = ? WHERE idEventos = ?', [req.body.tituloEvento, req.body.contenidoEvento, id]);
+  res.redirect('/admin/actEventos')
+})
+//------------------------------------------------------------
 router.get('/admin/actInformes', async (req, res) => {
   await db.query('SELECT * FROM informes ', (err, result) => {
     res.render('pages/actInformes', {
