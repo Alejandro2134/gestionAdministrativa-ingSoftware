@@ -110,6 +110,37 @@ router.get('/admin/actInformes', async (req, res) => {
   })
 })
 
+router.get('/admin/actInformes/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('DELETE FROM informes WHERE idInformes = ?', [id])
+  res.redirect('/admin/actInformes')
+})
+
+router.get('/admin/actInformes/agregarInforme', (req, res) => {
+  res.render('pages/agregarInforme')
+})
+
+router.post('/admin/actInformes/agregarInforme', async (req, res) => {
+  const { nombreInforme, ubicacionInforme, fechaPublicacion } = req.body;
+  await db.query('INSERT INTO informes (nombreInforme, ubicacionInforme, fechaPublicacion) VALUES (?, ?, ?)', [nombreInforme, ubicacionInforme, fechaPublicacion])
+  res.redirect('/admin/actInformes')
+})
+
+router.get('/admin/actInformes/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('SELECT * FROM informes WHERE idInformes = ?', [id], (err, result) => {
+    res.render('pages/updateInforme', {
+      data: result
+    })
+  })
+})
+
+router.post('/admin/actInformes/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('UPDATE informes SET nombreInforme = ?, ubicacionInforme = ?, fechaPublicacion = ? WHERE idInformes = ?', [req.body.nombreInforme, req.body.ubicacionInforme, req.body.fechaPublicacion, id]);
+  res.redirect('/admin/actInformes')
+})
+
 router.get('/admin/actPropietarios', (req, res) => {
   res.render('pages/actPropietarios')
 })

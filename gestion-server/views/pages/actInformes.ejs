@@ -29,7 +29,7 @@
             <img src="/img/informes.png" class="img-head">
             <h1 class="title-head">&nbsp&nbsp&nbsp&nbsp&nbsp Sección de Informes</h1>
             <br>
-            <a href="" class="btn btn-primary btn-lg">Agregar nuevo informe</a>
+            <a href="/admin/actInformes/agregarInforme" class="btn btn-primary btn-lg">Agregar nuevo informe</a>
           </div>
         </div>
       </div>
@@ -46,8 +46,8 @@
                   <h1 class="title-article"><%= data[i].nombreInforme %></h1>
                   <span><%= data[i].fechaPublicacion%></span>
                   <p><%= data[i].ubicacionInforme %></p>
-                  <a href="" class="btn btn-danger">Eliminar informe</a>
-                  <a href="" class="btn btn-warning">Actualizar informe</a>
+                  <a href="/admin/actInformes/delete/<%=data[i].idInformes%>" class="btn btn-danger">Eliminar informe</a>
+                  <a href="/admin/actInformes/update/<%=data[i].idInformes%>" class="btn btn-warning">Actualizar informe</a>
                 </div>
               </div>
             </article>
