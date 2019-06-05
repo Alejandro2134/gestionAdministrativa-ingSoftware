@@ -172,6 +172,8 @@ router.post('/admin/actInformes/update/:id', async (req, res) => {
   res.redirect('/admin/actInformes')
 })
 
+//------------------------------------------------------------------------------------------
+
 router.get('/admin/actPropietarios', (req, res) => {
   res.render('pages/actPropietarios')
 })
