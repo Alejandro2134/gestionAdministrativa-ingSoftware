@@ -182,6 +182,29 @@ router.get('/admin/actPropietarios', async (req, res) => {
   })
 })
 
+router.get('/admin/actPropietarios/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('DELETE FROM propietarios WHERE idPropietarios = ?', [id])
+  res.redirect('/admin/actPropietarios')
+})
+
+router.get('/admin/actPropietarios/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('SELECT * FROM propietarios WHERE idPropietarios = ?', [id], (err, result) => {
+    res.render('pages/updatePropietario', {
+      data: result
+    })
+  })
+})
+
+router.post('/admin/actPropietarios/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('UPDATE propietarios SET nombres = ?, apellido = ?, telefono = ?, celular = ?, correo = ?, userName = ? WHERE idInformes = ?', [req.body.nombres, req.body.apellidos, req.body.telefono, req.body.celular, req.body.correo, req.body.userName, id]);
+  res.redirect('/admin/actPropietarios')
+})
+
+//----------------------------------------------------------------------------------------------
+
 router.get('/admin/actEmpresaAseo', (req, res) => {
   res.render('pages/actEmpresaAseo')
 })
