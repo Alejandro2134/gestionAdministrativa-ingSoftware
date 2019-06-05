@@ -199,7 +199,7 @@ router.get('/admin/actPropietarios/update/:id', async (req, res) => {
 
 router.post('/admin/actPropietarios/update/:id', async (req, res) => {
   const { id } = req.params;
-  await db.query('UPDATE propietarios SET nombres = ?, apellido = ?, telefono = ?, celular = ?, correo = ?, userName = ? WHERE idInformes = ?', [req.body.nombres, req.body.apellidos, req.body.telefono, req.body.celular, req.body.correo, req.body.userName, id]);
+  await db.query('UPDATE propietarios SET nombres = ?, apellidos = ?, telefono = ?, celular = ?, correo = ?, userName = ? WHERE idPropietarios = ?', [req.body.nombres, req.body.apellidos, req.body.telefono, req.body.celular, req.body.correo, req.body.userName, id]);
   res.redirect('/admin/actPropietarios')
 })
 
@@ -209,13 +209,14 @@ router.get('/admin/actEmpresaAseo', (req, res) => {
   res.render('pages/actEmpresaAseo')
 })
 
+//-------------------------------------------------------------------------------------------------
+
 router.get('/admin/actEmpresaVig', (req, res) => {
    db.query('SELECT * FROM empresavigilancia ', (err, result) => {
     res.render('pages/actEmpresaVig', {
       data: result
     })
   })
-
 })
 
 router.get('/admin/actEmpresaVig/agregarEmpresaVig', (req, res) => {
@@ -248,6 +249,8 @@ router.post('/admin/actEmpresaVig/update/:id', async (req, res) => {
   await db.query('UPDATE empresavigilancia SET nombreVig = ?, direccionVig = ?, telefonoVig = ?, celularVig = ? WHERE idEmpresaVigilancia = ?', [req.body.nombreEmpresa, req.body.direccionEmpresa, req.body.telefonoEmpresa,req.body.celularEmpresa, id]);
   res.redirect('/admin/actEmpresaVig')
 })
+
+//----------------------------------------------------------------------------------
 
 router.get('/propietario', async (req, res) => {
   await db.query('SELECT * FROM noticias ', (err, result) => {

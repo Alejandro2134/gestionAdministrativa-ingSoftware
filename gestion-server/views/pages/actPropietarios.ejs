@@ -49,8 +49,8 @@
                   <p>Celular: <%= data[i].celular %></p>
                   <p>Correo: <%= data[i].correo %></p>
                   <p>UserName: <%= data[i].userName %></p>
-                  <a href="" class="btn btn-danger">Eliminar Propietario</a>
-                  <a href="" class="btn btn-warning">Actualizar Propietario</a>
+                  <a href="/admin/actPropietarios/delete/<%=data[i].idPropietarios%>" class="btn btn-danger">Eliminar Propietario</a>
+                  <a href="/admin/actPropietarios/update/<%=data[i].idPropietarios%>" class="btn btn-warning">Actualizar Propietario</a>
                 </div>
               </div>
             </article>
