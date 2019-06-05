@@ -210,7 +210,43 @@ router.get('/admin/actEmpresaAseo', (req, res) => {
 })
 
 router.get('/admin/actEmpresaVig', (req, res) => {
-  res.render('pages/actEmpresaVig')
+   db.query('SELECT * FROM empresavigilancia ', (err, result) => {
+    res.render('pages/actEmpresaVig', {
+      data: result
+    })
+  })
+
+})
+
+router.get('/admin/actEmpresaVig/agregarEmpresaVig', (req, res) => {
+  res.render('pages/agregarEmpresaVig')
+})
+
+router.post('/admin/actEmpresaVig/agregarEmpresaVig', async (req, res) => {
+  const { nombreEmpresa, direccionEmpresa, telefonoEmpresa, celularEmpresa} = req.body;
+  await db.query('INSERT INTO empresavigilancia (nombreVig, direccionVig, telefonoVig, celularVig ) VALUES (?, ?, ?, ?)', [nombreEmpresa, direccionEmpresa, telefonoEmpresa, celularEmpresa])
+  res.redirect('/admin/actEmpresaVig')
+})
+
+router.get('/admin/actEmpresaVig/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('DELETE FROM empresavigilancia WHERE idEmpresaVigilancia = ?', [id])
+  res.redirect('/admin/actEmpresaVig')
+})
+
+router.get('/admin/actEmpresaVig/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('SELECT * FROM empresavigilancia WHERE idEmpresaVigilancia = ?', [id], (err, result) => {
+    res.render('pages/updateEmpresaVig', {
+      data: result
+    })
+  })
+})
+
+router.post('/admin/actEmpresaVig/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('UPDATE empresavigilancia SET nombreVig = ?, direccionVig = ?, telefonoVig = ?, celularVig = ? WHERE idEmpresaVigilancia = ?', [req.body.nombreEmpresa, req.body.direccionEmpresa, req.body.telefonoEmpresa,req.body.celularEmpresa, id]);
+  res.redirect('/admin/actEmpresaVig')
 })
 
 router.get('/propietario', async (req, res) => {

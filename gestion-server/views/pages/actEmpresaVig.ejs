@@ -19,10 +19,45 @@
     <% include ../partials/headerAdmin %>
   </header>
 
-  <body>
+  <body class="body">
+    <main>
+      <div class="head head-content">
+        <div class="container contenedor">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <img src="/img/escudo.png" class="img-head" style="width: 50px;">
+              <h1 class="title-head">&nbsp&nbsp&nbsp&nbsp&nbsp Empresa de vigilancia</h1>
+              <br>
+              <a href="/admin/actEmpresaVig/agregarEmpresaVig" class="btn btn-primary btn-lg">Agregar nueva empresa</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container articles">
+        <div class="row">
+          <div class="col">
+
+            <% for(var i=0; i< data.length; i++){ %>
+              <article>
+                <div class="article">
+                  <div class="article-body">
+                    <h1 class="title-article"><%= data[i].nombreVig %></h1>
+                    <p><%= data[i].direccionVig %></p>
+                    <p><%= data[i].telefonoVig %></p>
+                    <p><%= data[i].celularVig %></p>
+                    <a href="/admin/actEmpresaVig/delete/<%=data[i].idEmpresaVigilancia%>" class="btn btn-danger">Eliminar Empresa</a>
+                    <a href="/admin/actEmpresaVig/update/<%=data[i].idEmpresaVigilancia%>" class="btn btn-warning">Actualizar Empresa</a>
+                  </div>
+                </div>
+              </article>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </main>
 
   </body>
-
   <footer> </footer>
 
   <!-- Bootstrap JavaScript -->
