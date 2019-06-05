@@ -19,10 +19,45 @@
     <% include ../partials/headerAdmin %>
   </header>
 
-  <body>
+  <body class="body">
+    <main>
+      <div class="head head-content">
+        <div class="container contenedor">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <img src="/img/aseo.png" class="img-head" style="width: 50px;">
+              <h1 class="title-head">&nbsp&nbsp&nbsp&nbsp&nbsp Empresa de Aseo</h1>
+              <br>
+              <a href="/admin/actEmpresaAseo/agregarEmpresaAse" class="btn btn-primary btn-lg">Agregar nueva empresa</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container articles">
+        <div class="row">
+          <div class="col">
+
+            <% for(var i=0; i< data.length; i++){ %>
+              <article>
+                <div class="article">
+                  <div class="article-body">
+                    <h1 class="title-article"><%= data[i].nombreAseo %></h1>
+                    <p><%= data[i].direccionAseo %></p>
+                    <p><%= data[i].telefonoAseo %></p>
+                    <p><%= data[i].celularAseo %></p>
+                    <a href="/admin/actEmpresaAseo/delete/<%=data[i].idEmpresaAseo%>" class="btn btn-danger">Eliminar Empresa</a>
+                    <a href="/admin/actEmpresaAseo/update/<%=data[i].idEmpresaAseo%>" class="btn btn-warning">Actualizar Empresa</a>
+                  </div>
+                </div>
+              </article>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </main>
 
   </body>
-
   <footer> </footer>
 
   <!-- Bootstrap JavaScript -->

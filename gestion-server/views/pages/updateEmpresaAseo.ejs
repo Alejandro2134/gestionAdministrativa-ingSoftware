@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Bootstrap 4 -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/eventos.css">
+    <!-- Custom CSS -->
+
+    <title>Actualizar Empresa aseo</title>
+  </head>
+
+  <header>
+    <% include ../partials/headerAdmin %>
+  </header>
+
+  <body>
+    <div class="background text-white py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <h1>Actualizar empresa aseo</h1>
+
+              <form action="/admin/actEmpresaAseo/update/<%=data[0].idEmpresaAseo%>" method="post">
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Nombre de la empresa</label>
+                  <input value = "<%= data[0].nombreAseo %>" name="nombreAseo" type="text" class="form-control"  required>
+                </div>
+
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Direccion de la empresa</label>
+                  <input value = "<%= data[0].direccionAseo %>" name="direccionAseo" type="text" class="form-control"  required>
+                </div>
+
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Telefono de la empresa</label>
+                  <input value = "<%= data[0].telefonoAseo %>" name="telefonoAseo" type="text" class="form-control"  required>
+                </div>
+
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Celular de la empresa</label>
+                  <input value = "<%= data[0].celularAseo %>" name="celularAseo" type="text" class="form-control"  required>
+                </div>
+
+                <input class="btn btn-primary" type="submit" value="Actualizar Empresa">
+              </form>
+
+          </div>
+
+          <div class="col-md-6 text-center" >
+            <img src="/img/aseo.png" width="390" alt="imagen" class="img-fluid">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <footer> </footer>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Bootstrap JavaScript -->
+
+</html>

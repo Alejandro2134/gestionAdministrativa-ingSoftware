@@ -205,8 +205,43 @@ router.post('/admin/actPropietarios/update/:id', async (req, res) => {
 
 //----------------------------------------------------------------------------------------------
 
-router.get('/admin/actEmpresaAseo', (req, res) => {
-  res.render('pages/actEmpresaAseo')
+router.get('/admin/actEmpresaAseo',async (req, res) => {
+  await db.query('SELECT * FROM empresaaseo ', (err, result) => {
+    res.render('pages/actEmpresaAseo', {
+      data: result
+    })
+  })
+})
+
+router.get('/admin/actEmpresaAseo/agregarEmpresaAse', (req, res) => {
+  res.render('pages/agregarEmpresaAse')
+})
+
+router.post('/admin/actEmpresaAseo/agregarEmpresaAse', async (req, res) => {
+  const { nombreAseo, direccionAseo, telefonoAseo, celularAseo } = req.body;
+  await db.query('INSERT INTO empresaaseo (nombreAseo, direccionAseo, telefonoAseo, celularAseo ) VALUES (?, ?, ?, ?)', [nombreAseo, direccionAseo, telefonoAseo, celularAseo])
+  res.redirect('/admin/actEmpresaAseo')
+})
+
+router.get('/admin/actEmpresaAseo/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('DELETE FROM empresaaseo WHERE idEmpresaAseo = ?', [id])
+  res.redirect('/admin/actEmpresaAseo')
+})
+
+router.get('/admin/actEmpresaAseo/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('SELECT * FROM empresaaseo WHERE idEmpresaAseo = ?', [id], (err, result) => {
+    res.render('pages/updateEmpresaAseo', {
+      data: result
+    })
+  })
+})
+
+router.post('/admin/actEmpresaAseo/update/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.query('UPDATE empresaaseo SET nombreAseo = ?, direccionAseo = ?, telefonoAseo = ?, celularAseo = ? WHERE idEmpresaAseo = ?', [req.body.nombreAseo, req.body.direccionAseo, req.body.telefonoAseo,req.body.celularAseo, id]);
+  res.redirect('/admin/actEmpresaAseo')
 })
 
 //-------------------------------------------------------------------------------------------------
