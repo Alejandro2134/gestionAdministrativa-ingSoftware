@@ -29,7 +29,7 @@ router.post('/login', (req, res) => {
     let userName = req.body.userAdmin
     let contraseña = req.body.contraseñaAdmin
     db.query('SELECT * FROM propietarios WHERE ? AND ?', [{ userName }, { contraseña }], (err, result) => {
-      res.render('pages/indexUser', {
+      res.render('pages/indexPropietario', {
         data: result
       })
     })
@@ -174,8 +174,12 @@ router.post('/admin/actInformes/update/:id', async (req, res) => {
 
 //------------------------------------------------------------------------------------------
 
-router.get('/admin/actPropietarios', (req, res) => {
-  res.render('pages/actPropietarios')
+router.get('/admin/actPropietarios', async (req, res) => {
+  await db.query('SELECT * FROM propietarios ', (err, result) => {
+    res.render('pages/actPropietarios', {
+      data: result
+    })
+  })
 })
 
 router.get('/admin/actEmpresaAseo', (req, res) => {
