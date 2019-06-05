@@ -29,7 +29,7 @@
             <img src="/img/eventos.png" class="img-head">
             <h1 class="title-head">&nbsp&nbsp&nbsp&nbsp&nbsp Sección de Eventos</h1>
             <br>
-            <a href="" class="btn btn-primary btn-lg">Agregar nuevo evento</a>
+            <a href="/admin/actEventos/agregarEvento" class="btn btn-primary btn-lg">Agregar nuevo evento</a>
           </div>
         </div>
       </div>
@@ -46,8 +46,8 @@
                   <h1 class="title-article"><%= data[i].nombreEvento %></h1>
                   <span><%= data[i].fechaEvento%> </span>
                   <p><%= data[i].contenidoEvento %></p>
-                  <a href="" class="btn btn-danger">Eliminar Evento</a>
-                  <a href="" class="btn btn-warning">Actualizar Evento</a>
+                  <a href="/admin/actEventos/delete/<%=data[i].idEventos%>" class="btn btn-danger">Eliminar Evento</a>
+                  <a href="/admin/actEventos/update/<%=data[i].idEventos%>" class="btn btn-warning">Actualizar Evento</a>
                 </div>
               </div>
             </article>
